@@ -5,37 +5,30 @@ class Currency:
 
     #Assigner
     def __init__(self,value):
-        if value < 0 : raise ("invalid input: Negative Number was inputed.")
+        if value < 0 : raise ("invalid input: Negative Number was inputted.")
+        
+        self.noteValue = int(value)
+        self.coinValue = int(round(value*100)%100)
 
-        self.noteValue,self.coinValue = value.split(".")
-    
-    
     def add(addend):
-        if addend < 0: Currency.subtract(-addend)
-
-        addendNoteValue,addendCoinValue = addend.split(".")
-
-        Currency.noteValue += addendNoteValue 
-
-        c = Currency.coinValue + addendCoinValue
-
-        if c > 1: Currency.add(c)
-        else: c = Currency.coinValue
-
-        pass
-
+        addendNoteValue = int(addend)
+        addendCoinValue = int(round(addend*100)%100)
+        Currency.coinValue = Currency.coinValue + addendCoinValue
+        Currency.noteValue += addendNoteValue + int(Currency.coinValue/100)
+        Currency.coinValue = int(Currency.coinValue%100)
+    
     def subtract(subtrahend):
-        if subtrahend < 0: Currency.add(-subtrahend)
+        pass
         
 
 
 
     def isEqual(comparand) -> bool:
-        if comparand == Currency.noteValue+round(Currency.coinValue/100,2): return True
+        if int(100*comparand) == 100*Currency.noteValue +  Currency.coinValue: return True
         return False
 
     def isGreater(comparand):
-        if comparand > Currency.noteValue+round(Currency.coinValue/100,2): return True
+        if int(100*comparand) > 100*Currency.noteValue +  Currency.coinValue: return True
         return False
 
     def print():
