@@ -5,9 +5,11 @@ from pound import Pound
 def main():
 
     # Declaring currency
-    currencies = [Pound(0.00),Dollar(0.00)]
-    pass
+    currencies = [Pound(1.00),Dollar(0.00)]
+    for currency in currencies: 
+        currency.print()
+    print()
 
-
-main()
+if __name__ == "__main__":
+    main()
 

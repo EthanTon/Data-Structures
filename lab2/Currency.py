@@ -10,17 +10,9 @@ class Currency:
         self.noteValue = int(value)
         self.coinValue = int(round(value*100)%100)
 
-    #copy
-    def __init__(self,other ):
-        self.noteValue = other.noteValue
-        self.coinValue = other.coinValue
+    def add(self,addend):
+        self.noteValue += addend.noteValue
 
-    def add(addend):
-        addendNoteValue = int(addend)
-        addendCoinValue = int(round(addend*100)%100)
-        Currency.coinValue = Currency.coinValue + addendCoinValue
-        Currency.noteValue += addendNoteValue + int(Currency.coinValue/100)
-        Currency.coinValue = int(Currency.coinValue%100)
     
     def subtract(subtrahend):
         pass
@@ -28,13 +20,14 @@ class Currency:
 
 
 
-    def isEqual(comparand) -> bool:
-        if int(100*comparand) == 100*Currency.noteValue +  Currency.coinValue: return True
+    def isEqual(self,comparand) -> bool:
+        if comparand.noteValue == self.noteValue and comparand.coinValue == self.coinValue: return True
         return False
 
-    def isGreater(comparand):
-        if int(100*comparand) > 100*Currency.noteValue +  Currency.coinValue: return True
-        return False
+    def isGreater(self,comparand) -> bool:
+        if comparand.noteValue > self.noteValue: return False
+        if comparand.coinValue > self.coinValue: return False
+        return True
 
-    def print():
-        print(Currency.noteValue + "." + Currency.coinValue)
+    def print(self):
+        print("%.2f" % (self.noteValue + (self.coinValue/100)), end = " ")
