@@ -10,6 +10,11 @@ class Currency:
         self.noteValue = int(value)
         self.coinValue = int(round(value*100)%100)
 
+    #copy
+    def __init__(self,other ):
+        self.noteValue = other.noteValue
+        self.coinValue = other.coinValue
+
     def add(addend):
         addendNoteValue = int(addend)
         addendCoinValue = int(round(addend*100)%100)

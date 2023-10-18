@@ -1,6 +1,6 @@
-from Currency import Currency
-from Dollar import Dollar
-from Pound import Pound
+from currency import Currency
+from dollar import Dollar
+from pound import Pound
 
 def main():
 

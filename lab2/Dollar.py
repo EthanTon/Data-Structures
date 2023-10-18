@@ -1,3 +1,5 @@
+from currency import Currency
+
 class Dollar(Currency):
     def __init__(self, noteValue, coinValue):
         super().__init__(noteValue, coinValue)
