@@ -10,6 +10,7 @@ class Currency:
         self.noteValue = int(value)
         self.coinValue = int(round(value*100)%100)
 
+
     def add(self,addend):
         self.noteValue += addend.noteValue
         coinValueTemp = self.coinValue + addend.coinValue
@@ -19,12 +20,22 @@ class Currency:
         else:  self.coinValue = coinValueTemp
 
     
-    def subtract(subtrahend):
-        pass
+    def subtract(self,subtrahend):
+        try:
+            self.noteValue = self.noteValue - subtrahend.noteValue
+
+            coinTempValue = self.coinValue - subtrahend.coinValue
+
+            if(coinTempValue < 0): 
+                self.noteValue -= 1
+                self.coinValue = 100+coinTempValue
+            else: self.coinValue = coinTempValue
+
+            if self.noteValue < 0: raise ValueError("Invalid subtraction")
+        except ValueError: raise ValueError
         
-
-
-
+            
+        
     def isEqual(self,comparand) -> bool:
         if comparand.noteValue == self.noteValue and comparand.coinValue == self.coinValue: return True
         return False

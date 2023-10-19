@@ -48,8 +48,13 @@ def main():
             if affectedCurrency == "p": currencies[0].add(operand)
             elif operation == "d": currencies[1].add(operand)
             else: print("Invalid Input")
+        elif operation == "s":
+            if affectedCurrency == "p": currencies[0].subtract(operand)
+            elif operation == "d": currencies[1].subtract(operand)
+            else: print("Invalid Input")
         elif operation == "q":  break
         else: print(Exception("Invalid Input"))
+
 
 if __name__ == "__main__":
     main()
