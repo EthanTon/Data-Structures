@@ -12,6 +12,11 @@ class Currency:
 
     def add(self,addend):
         self.noteValue += addend.noteValue
+        coinValueTemp = self.coinValue + addend.coinValue
+        if(coinValueTemp > 100): 
+            self.noteValue += 100
+            self.coinValue = coinValueTemp-100
+        else:  self.coinValue = coinValueTemp
 
     
     def subtract(subtrahend):
