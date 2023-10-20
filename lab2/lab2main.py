@@ -6,7 +6,7 @@ def main():
 
 
     # Declaring currency 
-    currencies = [Pound(1.00),Dollar(0.00)]
+    currencies = [Pound(0.00),Dollar(0.00)]
 
 
     operation = "d" #default state
