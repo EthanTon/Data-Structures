@@ -37,6 +37,11 @@ def main():
         elif(inputLength == 1): pass
         else: print("Invalid input")
         
+        
+
+        #operation block
+        operation = Input[0]
+
         try:
 
             if effectCurrency == "pound": operand = Pound(operandValue)
@@ -45,9 +50,6 @@ def main():
         except ValueError: 
             operand = Currency(0.00)
             operation = "r"
-
-        #operation block
-        operation = Input[0]
         
         if operation == "a": #add to currency
             if affectedCurrency == "p": currencies[0].add(operand)

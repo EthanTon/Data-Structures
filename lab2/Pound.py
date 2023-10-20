@@ -12,3 +12,5 @@ class Pound(Currency):
     def print(self):
         super().print()
         print(self.name(), end = " ")
+
+    
