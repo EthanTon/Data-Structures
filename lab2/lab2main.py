@@ -9,7 +9,7 @@ def main():
     currencies = [Pound(0.00),Dollar(0.00)]
 
 
-    operation = "d" #default state
+    operation = "r" #default state
     while operation != "q":
         
         for currency in currencies: currency.print()   
@@ -36,24 +36,29 @@ def main():
             effectCurrency = Input[3]
         elif(inputLength == 1): pass
         else: print("Invalid input")
+        
+        try:
 
-        if effectCurrency == "pound": operand = Pound(operandValue)
-        elif effectCurrency == "dollar": operand = Dollar(operandValue)
-        else: operation = "d"
+            if effectCurrency == "pound": operand = Pound(operandValue)
+            elif effectCurrency == "dollar": operand = Dollar(operandValue)
+            else: operation = "r"
+        except ValueError: 
+            operand = Currency(0.00)
+            operation = "r"
 
         #operator block
         operation = Input[0]
 
         if operation == "a":
             if affectedCurrency == "p": currencies[0].add(operand)
-            elif operation == "d": currencies[1].add(operand)
+            elif affectedCurrency == "d": currencies[1].add(operand)
             else: print("Invalid Input")
         elif operation == "s":
             if affectedCurrency == "p": currencies[0].subtract(operand)
-            elif operation == "d": currencies[1].subtract(operand)
+            elif affectedCurrency == "d": currencies[1].subtract(operand)
             else: print("Invalid Input")
         elif operation == "q":  break
-        else: print(Exception("Invalid Input"))
+        else: print("Invalid Input")
 
 
 if __name__ == "__main__":
