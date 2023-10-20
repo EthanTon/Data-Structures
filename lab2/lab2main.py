@@ -46,14 +46,14 @@ def main():
             operand = Currency(0.00)
             operation = "r"
 
-        #operator block
+        #operation block
         operation = Input[0]
-
-        if operation == "a":
+        
+        if operation == "a": #add to currency
             if affectedCurrency == "p": currencies[0].add(operand)
             elif affectedCurrency == "d": currencies[1].add(operand)
             else: print("Invalid Input")
-        elif operation == "s":
+        elif operation == "s": #subtract from the currency
             if affectedCurrency == "p": currencies[0].subtract(operand)
             elif affectedCurrency == "d": currencies[1].subtract(operand)
             else: print("Invalid Input")
