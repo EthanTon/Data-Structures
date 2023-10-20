@@ -42,15 +42,15 @@ def main():
         #operation block
         operation = Input[0]
 
-        try:
+        if(operation != "q"):
+            try:
+                if effectCurrency == "pound": operand = Pound(operandValue)
+                elif effectCurrency == "dollar": operand = Dollar(operandValue)
+                else: operation = "r"
+            except ValueError: 
+                operand = Currency(0.00)
+                operation = "r"
 
-            if effectCurrency == "pound": operand = Pound(operandValue)
-            elif effectCurrency == "dollar": operand = Dollar(operandValue)
-            else: operation = "r"
-        except ValueError: 
-            operand = Currency(0.00)
-            operation = "r"
-        
         if operation == "a": #add to currency
             if affectedCurrency == "p": currencies[0].add(operand)
             elif affectedCurrency == "d": currencies[1].add(operand)
@@ -61,6 +61,8 @@ def main():
             else: print("Invalid Input")
         elif operation == "q":  break
         else: print("Invalid Input")
+
+    del currencies
 
 
 if __name__ == "__main__":
