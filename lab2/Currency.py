@@ -49,7 +49,8 @@ class Currency:
 
     def isGreater(self,comparand) -> bool:
         if comparand.noteValue > self.noteValue: return False
-        if comparand.coinValue > self.coinValue: return False
+        if comparand.coinValue == self.noteValue:
+            if comparand.coinValue > self.coinValue: return False
         return True
 
     def print(self):
