@@ -1,7 +1,8 @@
 class Currency:
     #Default Constructor
-    def __init__() -> None:
-        pass
+    def __init__(self):
+        self.noteValue = 0.00
+        self.coinValue = 0.00
 
     #Assigner
     def __init__(self,value):
