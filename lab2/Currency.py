@@ -71,4 +71,4 @@ class Currency:
             return False
 
     def print(self):
-        print("%.2f" % (self.noteValue + (self.coinValue/100)), end = " ")
+        print("%.2f" % (self.noteValue + (self.coinValue/100)), " ", self.getname())
