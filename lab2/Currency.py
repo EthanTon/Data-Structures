@@ -14,10 +14,13 @@ class Currency:
         except ValueError: 
             (print("Invalid value"))
             raise ValueError
+        
+    def getname(): print("in child class")
+
 
     def add(self,addend):
         try:
-            if(addend.getname()!=self.getname()): raise ValueError
+            if(addend.getName()!=self.getName()): raise ValueError
             self.noteValue += addend.noteValue
             coinValueTemp = self.coinValue + addend.coinValue
             if(coinValueTemp > 100): 
@@ -28,12 +31,11 @@ class Currency:
 
         
 
-    def getname(): print("in child class")
-
+    
     
     def subtract(self,subtrahend):
         try:
-            if(subtrahend.getname()!=self.getname()): raise ValueError
+            if(subtrahend.getName()!=self.getName()): raise ValueError("InvalidSubtrahend")
             self.noteValue = self.noteValue - subtrahend.noteValue
 
             coinTempValue = self.coinValue - subtrahend.coinValue
@@ -46,14 +48,16 @@ class Currency:
             else: self.coinValue = coinTempValue
             if self.noteValue < 0 or self.coinValue < 0: raise ValueError
         except ValueError: 
-            (print("Invalid subtraction"))
+            print("Invalid subtraction")
             self.add(subtrahend)
+        except ValueError("InvalidSubtrahend"): print("Invalid subtraction")
+            
         
             
         
     def isEqual(self,comparand) -> bool:
         try:
-            if(comparand.getname()!=self.getname()): raise ValueError
+            if(comparand.getName()!=self.getName()): raise ValueError
             if comparand.noteValue == self.noteValue and comparand.coinValue == self.coinValue: return True
         except ValueError: 
             print("Invalid operation")
@@ -61,7 +65,7 @@ class Currency:
 
     def isGreater(self,comparand) -> bool:
         try:
-            if(comparand.getname()!=self.getname()): raise ValueError
+            if(comparand.getName()!=self.getName()): raise ValueError
             if comparand.noteValue > self.noteValue: return False
             if comparand.noteValue == self.noteValue:
                 if comparand.coinValue > self.coinValue: return False
@@ -71,4 +75,4 @@ class Currency:
             return False
 
     def print(self):
-        print("%.2f" % (self.noteValue + (self.coinValue/100)), " ", self.getname())
+        print("%.2f" % (self.noteValue + (self.coinValue/100)),self.getName(), end=" ")
