@@ -1,19 +1,13 @@
 class Currency:
-    #Default Constructor
-    def __init__(self):
-        self.noteValue = 0.00
-        self.coinValue = 0.00
-
     #Assigner
-    def __init__(self,value):
-        try:
-            if value < 0 : raise ValueError
+    def __init__(self,value=None):
+            
+            if value is None:
+                self.noteValue = 0.00
+                self.coinValue = 0.00
         
             self.noteValue = int(value)
             self.coinValue = int(round(value*100)%100)
-        except ValueError: 
-            (print("Invalid value"))
-            raise ValueError
         
     def getname(): print("in child class")
 
