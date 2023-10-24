@@ -5,9 +5,9 @@ class Currency:
             if value is None:
                 self.noteValue = 0.00
                 self.coinValue = 0.00
-        
-            self.noteValue = int(value)
-            self.coinValue = int(round(value*100)%100)
+            else:
+                self.noteValue = int(value)
+                self.coinValue = int(round(value*100)%100)
         
     def getname(): print("in child class")
 
