@@ -1,3 +1,8 @@
+"""
+Lab Number: 2
+Name: Ethan Ton, Alex Cho
+Purpose: Define a Dollar class that represents currency objects for Dollars and provides currency-specific operations.
+"""
 from currency import Currency
 
 class Dollar(Currency):

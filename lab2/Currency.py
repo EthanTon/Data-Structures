@@ -1,3 +1,8 @@
+"""
+Lab Number: 2
+Name: Ethan Ton, Alex Cho
+Purpose: Implement a Currency class to perform various currency operations, such as addition, subtraction, comparison, and printing.
+"""
 class Currency: 
     def __init__(self,value=None):
         if value is None:

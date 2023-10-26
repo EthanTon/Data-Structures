@@ -1,3 +1,8 @@
+"""
+Lab Number: 2
+Name: Ethan Ton, Alex Cho
+Purpose: Implement a currency program that allows user to add or subtract Pounds or Dollars.
+"""
 from currency import Currency
 from dollar import Dollar
 from pound import Pound
