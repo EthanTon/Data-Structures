@@ -64,8 +64,10 @@ def main():
             if affectedCurrency == "p": currencies[0].subtract(operand)
             elif affectedCurrency == "d": currencies[1].subtract(operand)
             else: print("Invalid Input")
-        elif operation == "q":  break
-        else: print("Invalid Input")
+        elif operation == "q":
+            break
+        else:
+            print("Invalid Input")
 
     del currencies
 
