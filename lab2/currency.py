@@ -12,7 +12,7 @@ class Currency:
             self.noteValue = int(value)
             self.coinValue = int(round(value*100)%100)
         
-    def getName():
+    def getName(self):
         """
         Gets the name of the currency.
     
