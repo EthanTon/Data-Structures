@@ -35,9 +35,74 @@ def main():
     stackList = Stack()
     queueList = Queue()
 
-    queueList.enqueue(currency[1])
+    # #LinkedList Module
+
+    for i in range(7):
+        linkedList.addCurrency(currency[i],0)
+
+    print(linkedList.findCurrency(Dollar(87.43)))
+    print(linkedList.findCurrency(Dollar(44.56)))
+
+    linkedList.removeCurrency(Dollar(111.22))
+    linkedList.removeCurrency(2)
+
+    for i in range(8,12):
+        linkedList.addCurrency(currency[i],i%5)
+    
+    linkedList.removeCurrency(linkedList.countCurrency()%6)
+    linkedList.removeCurrency(int(linkedList.countCurrency()/7))
+        
+    print(linkedList.printList())
+
+    #Stack Module
+
+    for i in range(13,20):
+        stackList.push(currency[i])
+
+    stackList.peek().print()
+
+    for i in range(3):
+        stackList.pop()
+    
+    print(stackList.printStack())
+
+    for i in range(5):
+        stackList.push(currency[i])
+
+    for i in range(2):
+        stackList.pop()
+    
+    print(stackList.printStack())
+
+    #Queue Module
+    
+    counter = 0
+    for i in range(5,len(currency),2):
+        queueList.enqueue(currency[i])
+        counter += 1
+        if counter == 7: 
+            break
+    
+    queueList.peekFront().print()
+    print()
+    queueList.peekRear().print()
+    print()
+
+    queueList.dequeue()
+    queueList.dequeue()
 
     print(queueList.printQueue())
 
+    for i in range(10,15):
+        queueList.enqueue(currency[i])
+
+    for i in range(3):
+        queueList.dequeue()
+    
+    print(queueList.printQueue())
+
+    #End Message
+
+    print("...The ADT demonstration has ended")
 if __name__ == '__main__':
     main()

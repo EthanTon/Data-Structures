@@ -14,21 +14,24 @@ class SinglyLinkedList:
     def addCurrency(self, currency, index):
         new_node = LinkNode(currency, None)  # Create a new node with the given currency
 
-        if self.isListEmpty():  # If the list is empty, set both start and end to the new node
-            self.start = new_node
-            self.end = new_node
-        elif index == 0:  # If index is 0, update the start
-            new_node.next = self.start
-            self.start = new_node
-        else:
-            prev_node = self.getNode(index - 1)  # Get the previous node
-            if prev_node:
-                new_node.next = prev_node.next
-                prev_node.next = new_node
-            if new_node.next is None:
+        try:
+            if self.isListEmpty():  # If the list is empty, set both start and end to the new node
+                self.start = new_node
                 self.end = new_node
+            elif index == 0:  # If index is 0, update the start
+                new_node.next = self.start
+                self.start = new_node
+            else:
+                prev_node = self.getNode(index - 1)  # Get the previous node
+                if prev_node:
+                    new_node.next = prev_node.next
+                    prev_node.next = new_node
+                if new_node.next is None:
+                    self.end = new_node
+            self.count += 1
+        except: 
+            pass
 
-        self.count += 1
 
     def removeCurrency(self, arg=None):
         if isinstance(arg, Currency):
@@ -66,21 +69,32 @@ class SinglyLinkedList:
 
     def getNode(self,index):
         currencyAtIndex = self.start
-        if index > 0 or index < self.count:
-            for i in range(index):
-                currencyAtIndex = currencyAtIndex.next
+        try:
+            if index > 0 or index < self.count:
+                for i in range(index):
+                    currencyAtIndex = currencyAtIndex.next
         
+        except: 
+            return -1
         return currencyAtIndex
     
     def getCurrency(self,index):
-        return self.getNode(index).data
+        try: 
+            currency = self.getNode(index).data
+        except: 
+            return None
+        return currency
 
     def printList(self):
-        printString = ""
-        for i in range(self.count):
-            formatted_value = "%.2f" % (self.getCurrency(i).noteValue + (self.getCurrency(i).coinValue / 100))
-            currency_name = self.getCurrency(i).getName()
-            printString += (str(i) + "\t" + formatted_value + " " + currency_name + "\n")
+        try:
+            printString = ""
+            for i in range(self.count):
+                formatted_value = "%.2f" % (self.getCurrency(i).noteValue + (self.getCurrency(i).coinValue / 100))
+                currency_name = self.getCurrency(i).getName()
+                printString += (formatted_value + " " + currency_name + "\t")
+        except:
+            printString = "Error"
+            
         return printString
     
     def isListEmpty(self): 
