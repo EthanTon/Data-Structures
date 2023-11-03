@@ -1,38 +1,33 @@
-from singlyLinkedList import SinglyLinkedList
+from SinglyLinkedList import SinglyLinkedList
 
 class Stack(SinglyLinkedList):
     def __init__(self):
-        super().__init__()
+        self.linkedLink = SinglyLinkedList()
         
-    def createStack(self):
-        pass
-
     def push(self, currency):
-        self.addCurrency(currency, 0) # add currency object at index 0, or the top of the stack
+        self.linkedLink.addCurrency(currency, 0) # add currency object at index 0, or the top of the stack
 
     def pop(self):
-        if self.isListEmpty(): # check if stack is empty
+        if self.linkedLink.isListEmpty(): # check if stack is empty
             print("Empty Stack")
             return None
         else:
-            popped_currency = self.getCurrency(0) # retrieve currency object at the top of the stack
-            self.removeCurrency(0) # remove it
+            popped_currency = self.linkedLink.getCurrency(0) # retrieve currency object at the top of the stack
+            self.linkedLink.removeCurrency(0) # remove it
             return popped_currency
 
     def peek(self):
-        if self.isListEmpty(): # check if stack is empty
+        if self.linkedLink.isListEmpty(): # check if stack is empty
             print("Stack is empty")
             return None
         else:
-            return self.getCurrency(0) # return currency object at the top of the stack
+            return self.linkedLink.getCurrency(0) # return currency object at the top of the stack
 
     def printStack(self):
         printString = ""
-        for i in range(self.count - 1, -1, -1): # iterate over stack indices in reverse order (top to bottom)
-            formatted_value = "%.2f" % (self.getCurrency(i).getNoteValue() + (self.getCurrency(i).getCoinValue() / 100))
-            currency_name = self.getCurrency(i).getName()
+        for i in range(self.linkedLink.count - 1, -1, -1): # iterate over stack indices in reverse order (top to bottom)
+            formatted_value = "%.2f" % (self.linkedLink.getCurrency(i).getNoteValue() + (self.linkedLink.getCurrency(i).getCoinValue() / 100))
+            currency_name = self.linkedLink.getCurrency(i).getName()
             printString += (formatted_value + " " + currency_name + "\t")
         return printString
     
-    def destroyStack(self):
-        pass

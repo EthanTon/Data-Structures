@@ -1,4 +1,4 @@
-from linkNode import LinkNode
+from LinkNode import LinkNode
 from dollar import Dollar
 from currency import Currency
 
