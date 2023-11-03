@@ -8,7 +8,7 @@ class Queue(SinglyLinkedList):
         pass
 
     def enqueue(self, currency):
-        self.addCurrency(currency, self.count)  # Add currency object to the end of the queue
+        self.addCurrency(currency, self.count-1)  # Add currency object to the end of the queue
 
     def dequeue(self):
         if self.isListEmpty():  # Check if queue is empty
@@ -16,7 +16,7 @@ class Queue(SinglyLinkedList):
             return None
         else:
             front_currency = self.getCurrency(0)  # Retrieve currency object at the front of the queue
-            self.removeCurrencyAtIndex(0)  # Remove it
+            self.removeCurrency(0)  # Remove it
             return front_currency
 
     def peekFront(self):
@@ -36,7 +36,7 @@ class Queue(SinglyLinkedList):
     def printQueue(self):
         printString = ""
         for i in range(self.count):  # Iterate over queue indices from front to end
-            formatted_value = "%.2f" % (self.getCurrency(i).noteValue + (self.getCurrency(i).coinValue / 100))
+            formatted_value = "%.2f" % (self.getCurrency(i).getNoteValue() + (self.getCurrency(i).getCoinValue() / 100))
             currency_name = self.getCurrency(i).getName()
             printString += (formatted_value + " " + currency_name + "\t")
         return printString

@@ -16,7 +16,7 @@ class Stack(SinglyLinkedList):
             return None
         else:
             popped_currency = self.getCurrency(0) # retrieve currency object at the top of the stack
-            self.removeCurrencyAtIndex(0) # remove it
+            self.removeCurrency(0) # remove it
             return popped_currency
 
     def peek(self):
@@ -29,7 +29,7 @@ class Stack(SinglyLinkedList):
     def printStack(self):
         printString = ""
         for i in range(self.count - 1, -1, -1): # iterate over stack indices in reverse order (top to bottom)
-            formatted_value = "%.2f" % (self.getCurrency(i).noteValue + (self.getCurrency(i).coinValue / 100))
+            formatted_value = "%.2f" % (self.getCurrency(i).getNoteValue() + (self.getCurrency(i).getCoinValue() / 100))
             currency_name = self.getCurrency(i).getName()
             printString += (formatted_value + " " + currency_name + "\t")
         return printString
