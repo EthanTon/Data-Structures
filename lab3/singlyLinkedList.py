@@ -25,6 +25,8 @@ class SinglyLinkedList:
             if prev_node:
                 new_node.next = prev_node.next
                 prev_node.next = new_node
+            if new_node.next is None:
+                self.end = new_node
 
         self.count += 1
 
