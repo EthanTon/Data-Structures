@@ -2,14 +2,18 @@ from LinkNode import LinkNode
 from dollar import Dollar
 from currency import Currency
 
+
 class SinglyLinkedList:
     def __init__(self):
         self.count = 0
-        self.start = LinkNode(None,None)
-        self.end = LinkNode(None,None)
+        self.start = LinkNode(None, None)
+        self.end = LinkNode(None, None)
 
-    def createList(self): pass
-    def destroyList(self): pass
+    def createList(self):
+        pass
+
+    def destroyList(self):
+        pass
 
     def addCurrency(self, currency, index):
         new_node = LinkNode(currency, None)  # Create a new node with the given currency
@@ -29,9 +33,8 @@ class SinglyLinkedList:
                 if new_node.next is None:
                     self.end = new_node
             self.count += 1
-        except: 
+        except:
             pass
-
 
     def removeCurrency(self, arg=None):
         if isinstance(arg, Currency):
@@ -57,7 +60,7 @@ class SinglyLinkedList:
 
             self.count -= 1
 
-    def findCurrency(self,currency):
+    def findCurrency(self, currency):
         indexOfCurrency = -1
         if self.isListEmpty() is False:
             for i in range(self.count):
@@ -65,23 +68,22 @@ class SinglyLinkedList:
                     indexOfCurrency = i
                     break
         return indexOfCurrency
-    
 
-    def getNode(self,index):
+    def getNode(self, index):
         currencyAtIndex = self.start
         try:
             if index > 0 or index < self.count:
                 for i in range(index):
                     currencyAtIndex = currencyAtIndex.next
-        
-        except: 
+
+        except:
             return -1
         return currencyAtIndex
-    
-    def getCurrency(self,index):
-        try: 
+
+    def getCurrency(self, index):
+        try:
             currency = self.getNode(index).data
-        except: 
+        except:
             return None
         return currency
 
@@ -94,15 +96,14 @@ class SinglyLinkedList:
                 printString += (formatted_value + " " + currency_name + "\t")
         except:
             printString = "Error"
-            
+
         return printString
-    
-    def isListEmpty(self): 
-        if self.count == 0: 
+
+    def isListEmpty(self):
+        if self.count == 0:
             return True
-        else:  
+        else:
             return False
-    def countCurrency(self): 
+
+    def countCurrency(self):
         return self.count
-
-
