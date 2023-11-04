@@ -1,3 +1,9 @@
+"""
+Lab Number: 3
+Name: Ethan Ton, Alex Cho
+Purpose: Implement a LinkNode class to be used in a Singly Linked List.
+"""
+
 class LinkNode:
     def __init__(self,currency,n):
         """

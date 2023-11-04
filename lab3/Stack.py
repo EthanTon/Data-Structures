@@ -1,3 +1,9 @@
+"""
+Lab Number: 3
+Name: Ethan Ton, Alex Cho
+Purpose: Implement a Stack class using a Singly Linked List to manage a collection of Currency objects and perform usual operations like push, pop, peek, print.
+"""
+
 from SinglyLinkedList import SinglyLinkedList
     
 class Stack(SinglyLinkedList):

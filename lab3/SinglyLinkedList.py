@@ -1,3 +1,9 @@
+"""
+Lab Number: 3
+Name: Ethan Ton, Alex Cho
+Purpose: Implement a Singly Linked List class to manage a collection of Currency objects.
+"""
+
 from LinkNode import LinkNode
 from dollar import Dollar
 from currency import Currency

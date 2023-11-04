@@ -1,3 +1,9 @@
+"""
+Lab Number: 3
+Name: Ethan Ton, Alex Cho
+Purpose: This program demonstrates the implementation of a singly linked list, stack, and queue, allowing users to perform various operations on each data structure using currency objects.
+"""
+
 from SinglyLinkedList import SinglyLinkedList
 from dollar import Dollar
 from Stack import Stack
