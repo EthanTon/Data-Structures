@@ -24,8 +24,24 @@ class Currency:
             self.coinValue = int(round(value*100)%100)
 
     def getNoteValue(self):
+        """
+        Gets the note value.
+    
+        Pre: None
+        Post: Gets the note value
+    
+        Returns: self.noteValue
+        """
         return self.noteValue
     def getCoinValue(self):
+        """
+        Gets the coin value.
+    
+        Pre: None
+        Post: Gets the coin value.
+    
+        Returns: self.coinValue
+        """
         return self.coinValue
 
     def getName(self):
