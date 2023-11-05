@@ -53,6 +53,8 @@ def main():
     linkedList.removeCurrency(Dollar(111.22))
     linkedList.removeCurrency(2)
 
+    print(linkedList.printList())
+
     for i in range(8, 12):
         linkedList.addCurrency(currency[i], i % 5)
 
