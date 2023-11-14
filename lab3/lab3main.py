@@ -50,6 +50,7 @@ def main():
     print(linkedList.findCurrency(Dollar(87.43)))
     print(linkedList.findCurrency(Dollar(44.56)))
 
+
     linkedList.removeCurrency(Dollar(111.22))
     linkedList.removeCurrency(2)
 
