@@ -38,6 +38,7 @@ class BST():
                     self.root = self.root.left
                     self.insert(node)
             self.root = root
+        else: raise ValueError("Value found for node")
 
     def remove(self, key):
         self._remove(key, self.root)
@@ -146,7 +147,7 @@ class BST():
             result.enqueue(root.data)
         return result
     
-    def levelorderTraversal(self, root):
+    def breadthFirstTraversal(self, root):
         result = Queue()
         if self.isEmpty(): #check if the BST is empty
             return result #return an empty list
@@ -165,6 +166,10 @@ class BST():
                 queue.enqueue(node.right)
 
         return result
+    
+    def print(self) -> str:
+        return self.breadthFirstTraversal(self.root).printQueue() + "\n" + self.inorderTraversal(self.root).printQueue() + "\n" + self.preorderTraversal(self.root).printQueue() + "\n" + self.postorderTraversal(self.root).printQueue() + "\n"
 
     def empty(self):
         self.root = None
+
