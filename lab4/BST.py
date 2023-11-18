@@ -58,7 +58,7 @@ class BST():
                 current = current.right
 
         if current is None:
-            return  # Key not found
+            raise ValueError("Not Found")  # Key not found
         # Node with one child or no child
         if current.left is None:
             if parent is None:

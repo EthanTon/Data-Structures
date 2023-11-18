@@ -40,7 +40,10 @@ def main():
                 print("Invalid Input: "+value+" was rejected")
         elif option == 'd':
             value = input("Enter value for removal:")
-            bst.remove(Dollar(value))
+            try:
+                bst.remove((Dollar(float(value))))
+            except:
+                print("Invalid Input: "+value+" was rejected")
         elif option == 's': #rewrite
             
             output = bst.print()
