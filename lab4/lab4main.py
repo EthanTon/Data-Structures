@@ -1,3 +1,9 @@
+"""
+Lab Number: 4
+Name: Ethan Ton, Alex Cho
+Purpose: This program demonstrates the BST operations using Dollar currency objects, dollar_values.
+"""
+
 from BSTNode import BSTNode
 from BST import BST
 from dollar import Dollar
@@ -5,7 +11,8 @@ from dollar import Dollar
 def main():
 
     bst = BST()
-    
+    file = open('output.txt', 'w')
+
     #start up sequence
     dollar_values = [
     57.12, 23.44, 87.43, 68.99, 111.22,
@@ -18,11 +25,9 @@ def main():
     for value in dollar_values:
         bst.insert(BSTNode(Dollar(value)))
     
-    file = open('output.txt', 'w')
     output = bst.print()
     print(output)
     file.write(output + "\n")
-    file.close()
 
     while True:
         print("\nOptions:")
@@ -45,23 +50,20 @@ def main():
                 bst.remove((Dollar(float(value))))
             except:
                 print("Invalid Input: "+value+" was rejected")
-        elif option == 's':
+        elif option == 's': #rewrite
             
-            file = open('output.txt', 'a')
             output = bst.print()
             print(output)
             file.write(output + "\n")
-            file.close()
             
         elif option == 'q':
-            file = open('output.txt', 'a')
             output = bst.print()
             print(output)
             file.write(output + "\n")
-            file.close()
             break
         else:
             print("Invalid option. Please try again.")
+    file.close()
     
 if __name__ == '__main__':
     main()
