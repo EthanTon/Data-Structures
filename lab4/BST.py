@@ -1,9 +1,6 @@
 from BSTNode import BSTNode
 from dollar import Dollar
 from Queue import Queue
-from SinglyLinkedList import SinglyLinkedList
-import os
-import contextlib
 
 class BST():
 
