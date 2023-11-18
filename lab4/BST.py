@@ -17,7 +17,34 @@ class BST():
             else: currNode = currNode.right
         return False
         
+    def inorderTraversal(self, root):
+        result = []
+        if root:
+            result = self.inorderTraversal(root.left)
+            result.append(root.data)
+            result = result + self.inorderTraversal(root.right)
+        return result
+    
+    def preorderTraversal(self, root):
+        result = []
+        if root:
+            result.append(root.data)
+            result = result + self.preorderTraversal(root.left)
+            result = result + self.preorderTraversal(root.right)
+        return result
 
+    def postorderTraversal(self, root):
+        result = []
+        if root:
+            result = result + self.postorderTraversal(root.left)
+            result = result + self.postorderTraversal(root.right)
+            result.append(root.data)
+        return result
+    
+    def levelorderTraversal(self, root):
+        pass
+        
+    
     def insert(self, node):
         root = self.root
         if self.isEmpty():
@@ -82,6 +109,12 @@ def test_bst():
     assert bst.search(node1) == True
     assert bst.search(node4) == True
     assert bst.search(BSTNode(10)) == False
+    
+    # testing tree traversals
+    print("In-order traversal:", bst.inorderTraversal(bst.root))
+    print("Pre-order traversal:", bst.preorderTraversal(bst.root))
+    print("Post-order traversal:", bst.postorderTraversal(bst.root))
+    print("Level-order traversal:", bst.levelorderTraversal(bst.root))
 
     print(bst.count())
 
