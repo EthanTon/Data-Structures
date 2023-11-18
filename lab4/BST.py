@@ -18,15 +18,15 @@ class BST():
         return False
         
     def inorderTraversal(self, root):
-        result = []
-        if root:
-            result = self.inorderTraversal(root.left)
-            result.append(root.data)
-            result = result + self.inorderTraversal(root.right)
-        return result
+        result = [] #initialize a result list
+        if root: #if root value in BST exists
+            result = self.inorderTraversal(root.left) #traverse left subtree
+            result.append(root.data) #append current node's data
+            result = result + self.inorderTraversal(root.right) #traverse right subtree
+        return result #return the list
     
     def preorderTraversal(self, root):
-        result = []
+        result = [] 
         if root:
             result.append(root.data)
             result = result + self.preorderTraversal(root.left)
@@ -42,7 +42,23 @@ class BST():
         return result
     
     def levelorderTraversal(self, root):
-        pass
+        result = []
+        if self.root is None: #check if the BST is empty
+            return result #return an empty list
+
+        queue = Queue() #create a queue
+        queue.enqueue(self.root) #enqueue the root node of the BST
+
+        while not queue.isEmpty(): #loop until the queue is empty
+            node = queue.dequeue() #dequeue the node
+            result.append(node.data) #add that node's data to the result list
+
+            if node.left is not None: #enqueue the left child if it exists
+                queue.enqueue(node.left)
+            if node.right is not None: #enqueue the right child if it exists
+                queue.enqueue(node.right)
+
+        return result
         
     
     def insert(self, node):
