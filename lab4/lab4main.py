@@ -11,7 +11,7 @@ from dollar import Dollar
 def main():
 
     bst = BST()
-    file = open('output.txt', 'w')
+    
 
     #start up sequence
     dollar_values = [
@@ -25,9 +25,11 @@ def main():
     for value in dollar_values:
         bst.insert(BSTNode(Dollar(value)))
     
+    file = open('output.txt', 'w')
     output = bst.print()
     print(output)
     file.write(output + "\n")
+    file.close()
 
     while True:
         print("\nOptions:")
@@ -52,18 +54,21 @@ def main():
                 print("Invalid Input: "+value+" was rejected")
         elif option == 's': #rewrite
             
+            file = open('output.txt', 'a')
             output = bst.print()
             print(output)
             file.write(output + "\n")
+            file.close()
             
         elif option == 'q':
+            file = open('output.txt', 'a')
             output = bst.print()
             print(output)
             file.write(output + "\n")
+            file.close()
             break
         else:
             print("Invalid option. Please try again.")
-    file.close()
     
 if __name__ == '__main__':
     main()
