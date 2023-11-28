@@ -89,3 +89,4 @@ class Queue(SinglyLinkedList):
         Returns: str
         """
         return self.linkedList.printList()
+
