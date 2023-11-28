@@ -36,10 +36,6 @@ class HashTable:
         if item.isEqual(self.map[index]):
             return index
         else: return None
-
     
-
-        
-    
-
-    
+    def getCollisions(self):
+        return self.collisions
