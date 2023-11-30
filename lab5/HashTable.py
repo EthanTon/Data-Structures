@@ -10,7 +10,7 @@ class HashTable:
         else: raise ValueError
 
     def getLoadFactor(self) -> float:
-        return float(self.size/self.collisions)
+        return float(self.collisions/self.size)
     
     def getCollisions(self) -> int:
         return self.collisions
