@@ -1,3 +1,9 @@
+"""
+Lab Number: 5
+Name: Ethan Ton, Alex Cho
+Purpose: Implement a hash table with quadratic probing collision resolution, specifically designed for storing and managing Dollar objects based on their hash values in a given size.
+"""
+
 from dollar import Dollar
 
 class HashTable:
@@ -10,12 +16,36 @@ class HashTable:
         else: raise ValueError
 
     def getLoadFactor(self) -> float:
+        """
+        Gets hash table load factor.
+    
+        Pre: None
+        Post: Gets the load factor
+    
+        Returns: load factor
+        """
         return float(self.collisions/self.size)
     
     def getCollisions(self) -> int:
+        """
+        Gets the collision count
+    
+        Pre: None
+        Post: Gets the number of collision
+    
+        Returns: collision
+        """
         return self.collisions
 
     def HashingFunction(self,item=None) -> int:
+        """
+        Gets the name of the currency.
+    
+        Pre: dollar object named item
+        Post: returns the index of currency or raises ValueError if item is none.
+    
+        Returns: index
+        """
         if item is not None:
             m = 2
             n = 3
@@ -23,6 +53,15 @@ class HashTable:
         else: raise ValueError
 
     def HashInsert(self, item):
+        """
+        Inserts an element into hash table
+    
+        Pre: dollar object named item
+        Post: Adds an element to the hash table
+            If the index is equal to original index a value error is raised.
+    
+        Returns: None
+        """
         index = self.HashingFunction(item)
         originalIndex = index
         i = 1  # Quadratic probing increment
@@ -38,6 +77,14 @@ class HashTable:
         self.length += 1
 
     def HashRemove(self, item):
+        """
+        Removes items from hash table
+    
+        Pre: dollar object named item
+        Post: Removes item wherever it is located from the hash table.
+    
+        Returns: None
+        """
         index = self.HashingFunction(item)
         originalIndex = index
 
@@ -50,6 +97,14 @@ class HashTable:
                 break  # Item not found
 
     def HashSearch(self, item):
+        """
+        Searches for items in hash table
+    
+        Pre: dollar object named item
+        Post: index of item
+    
+        Returns: index if item is found or None if item is not found
+        """
         index = self.HashingFunction(item)
         originalIndex = index
 
