@@ -24,7 +24,7 @@ class HashTable:
     
         Returns: load factor
         """
-        return float(self.collisions/self.size)
+        return float(self.length/self.size)
     
     def getCollisions(self) -> int:
         """
@@ -67,7 +67,7 @@ class HashTable:
         i = 1  # Quadratic probing increment
 
         while self.map[index] is not None:
-            index = (originalIndex + i**2) % self.size
+            index = (index + i**2) % self.size
             i += 1
             self.collisions += 1
             if index == originalIndex:
@@ -107,11 +107,14 @@ class HashTable:
         """
         index = self.HashingFunction(item)
         originalIndex = index
+        i = 1  # Quadratic probing increment
 
-        while self.map[index] is not None:
-            if item.isEqual(self.map[index]):
-                return index
-            index = (index + 1) % self.size
+        while i < self.length:
+            if self.map[index] is not None:
+                if item.isEqual(self.map[index]):
+                    return index
+            index = (index + (i**2)) % self.size
+            i+=1
             if index == originalIndex:
                 break  # Item not found
 
